@@ -82,13 +82,30 @@ async function loadSettings(){
     if(s.stat_events)document.getElementById('sE').dataset.c=s.stat_events;
     if(s.stat_initiatives)document.getElementById('sI').dataset.c=s.stat_initiatives;
     if(s.footer_desc)document.getElementById('fDs').textContent=s.footer_desc;
-    if(s.email)document.getElementById('fEm').innerHTML=`📧 ${s.email}`;
-    if(s.phone)document.getElementById('fPh').innerHTML=`📞 ${s.phone}`;
-    if(s.facebook)document.getElementById('lFb').href=s.facebook;
-    if(s.twitter)document.getElementById('lTw').href=s.twitter;
-    if(s.instagram)document.getElementById('lIg').href=s.instagram;
-    if(s.youtube)document.getElementById('lYt').href=s.youtube;
-    if(s.whatsapp)document.getElementById('lWa').href=s.whatsapp;
+    
+    // تعديل البريد الإلكتروني (نص + رابط)
+    if(s.email){
+        document.getElementById('fEm').innerHTML=`📧 ${s.email}`;
+        document.getElementById('fEm').href=`mailto:${s.email}`;
+    }
+    
+    // تعديل رقم الهاتف (نص + رابط tel)
+    if(s.phone){
+        // تنظيف الرقم من أي مسافات أو شرطات
+        let cleanPhone = s.phone.replace(/[\s\-]/g, '');
+        // التأكد أن الرقم يبدأ بعلامة + أو صفر
+        if(!cleanPhone.startsWith('+') && !cleanPhone.startsWith('00')){
+            cleanPhone = '+' + cleanPhone;
+        }
+        document.getElementById('fPh').innerHTML=`📞 ${s.phone}`;
+        document.getElementById('fPh').href=`tel:${cleanPhone}`;
+    }
+    
+    if(s.facebook && document.getElementById('lFb'))document.getElementById('lFb').href=s.facebook;
+    if(s.twitter && document.getElementById('lTw'))document.getElementById('lTw').href=s.twitter;
+    if(s.instagram && document.getElementById('lIg'))document.getElementById('lIg').href=s.instagram;
+    if(s.youtube && document.getElementById('lYt'))document.getElementById('lYt').href=s.youtube;
+    if(s.whatsapp && document.getElementById('lWa'))document.getElementById('lWa').href=s.whatsapp;
 }
 
 let aEv=[];
