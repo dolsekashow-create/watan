@@ -160,7 +160,7 @@
         <div class="ftc"><h4 id="fBr">قادة الوطن التطوعي</h4><p id="fDs">المنصة الرسمية للأمانة العامة والفريق التطوعي.</p><div class="fts"><a href="https://www.facebook.com/watanileaders" target="_blank" rel="noopener noreferrer" id="lFb">📘</a><a href="https://twitter.com/watanileaders" target="_blank" rel="noopener noreferrer" id="lTw">🐦</a><a href="https://www.instagram.com/watanileaders" target="_blank" rel="noopener noreferrer" id="lIg">📸</a><a href="https://www.youtube.com/c/watanileaders" target="_blank" rel="noopener noreferrer" id="lYt">🎬</a><a href="https://wa.me/966500000000" target="_blank" rel="noopener noreferrer" id="lWa">💬</a></div></div>
         <div class="ftc"><h4>روابط سريعة</h4><ul class="ftl"><li><a href="#hero">الرئيسية</a></li><li><a href="#about">من نحن</a></li><li><a href="#events">الفعاليات</a></li><li><a href="#join">انضم إلينا</a></li></ul></div>
         <div class="ftc"><h4>خدمات المنصة</h4><ul class="ftl"><li><a href="#courses">الدورات</a></li><li><a href="#meetings">الاجتماعات</a></li><li><a href="#complaints">المقترحات</a></li><li><a href="#members">الأعضاء</a></li></ul></div>
-        <div class="ftc"><h4>تواصل معنا</h4><ul class="ftl"><li><a href="mailto:info@watanileaders.com" id="fEm">📧 info@watanileaders.com</a></li><li><a href="#">📍 الأمانة العامة</a></li><li><a href="tel:+966500000000" id="fPh">📞 +966 50 000 0000</a></li></ul></div>
+        <div class="ftc"><h4>تواصل معنا</h4><ul class="ftl"><li><a href="/cdn-cgi/l/email-protection#5930373f36192e382d383730353c383d3c2b2a773a3634" id="fEm">📧 <span class="__cf_email__" data-cfemail="244d4a424b64534550454a4d484145404156570a474b49">[email&#160;protected]</span></a></li><li><a href="#">📍 الأمانة العامة</a></li><li><a href="tel:+966500000000" id="fPh">📞 +966 50 000 0000</a></li></ul></div>
     </div>
     <div class="zn-ft">
         <span class="zn-copy">© 2026 قادة الوطن التطوعي | جميع الحقوق محفوظة</span>
@@ -175,7 +175,7 @@
 <button class="stt" id="st" onclick="window.scrollTo({top:0})">↑</button>
 <div class="tst" id="tst"></div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const SB_URL='https://aeizymcxnhypvmsdpjum.supabase.co';
 const SB_KEY='sb_publishable_npCG48jSMhuaSTapcEtbcw_KBA1psfK';
 const H={'apikey':SB_KEY,'Authorization':`Bearer ${SB_KEY}`,'Content-Type':'application/json'};
@@ -192,6 +192,7 @@ async function loadSettings(){
     if(s.site_name){document.getElementById('sName').textContent=s.site_name;document.getElementById('fBr').textContent=s.site_name;}
     if(s.site_name_en)document.getElementById('sNameEn').textContent=s.site_name_en;
     if(s.hero_subtitle)document.getElementById('hSub').textContent=s.hero_subtitle;
+    if(s.hero_title){const hl=s.hero_title_highlight||'';if(hl&&s.hero_title.includes(hl)){document.getElementById('hTitle').innerHTML=s.hero_title.replace(hl,`<span class="hl">${hl}</span>`);}else{document.getElementById('hTitle').textContent=s.hero_title;}}
     if(s.vision)document.getElementById('aV').textContent=s.vision;
     if(s.mission)document.getElementById('aM').textContent=s.mission;
     if(s.goals)try{document.getElementById('aG').innerHTML=JSON.parse(s.goals).map(x=>`<li>${x}</li>`).join('')}catch(e){}
@@ -231,12 +232,17 @@ document.querySelectorAll('.rv').forEach(el=>new IntersectionObserver(e=>{e.forE
 function anCt(){document.querySelectorAll('.hsn').forEach(el=>{const t=parseInt(el.dataset.c)||0;let c=0;const i=t/60;const tm=setInterval(()=>{c+=i;if(c>=t){el.textContent=t+'+';clearInterval(tm)}else el.textContent=Math.floor(c)},30)});}
 function mkPt(){const c=document.getElementById('pts');for(let i=0;i<30;i++){const p=document.createElement('div');p.className='pt';p.style.cssText=`left:${Math.random()*100}%;top:${50+Math.random()*50}%;animation-delay:${Math.random()*12}s;animation-duration:${8+Math.random()*8}s;width:${2+Math.random()*4}px;height:${2+Math.random()*4}px`;c.appendChild(p);}}
 
+
 document.addEventListener('DOMContentLoaded',async()=>{
-    mkPt();
     await loadSettings();
+    await ldEv();
+    await ldNw();
+    await ldMb();
+    await ldCr();
+    await ldMt();
+    mkPt();
     anCt();
-    await Promise.all([ldEv(),ldNw(),ldMb(),ldCr(),ldMt()]);
-    document.getElementById('pl').classList.add('h');
+    setTimeout(()=>document.getElementById('pl').classList.add('h'),800);
 });
 </script>
 </body>
