@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>قادة الوطن التطوعي | منصة الأمانة العامة</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <style>
@@ -30,12 +30,107 @@
         @keyframes fiu{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}@keyframes fid{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}.rv{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}.rv.vi{opacity:1;transform:translateY(0)}
         @media(max-width:768px){.nav-links{display:none;position:absolute;top:72px;right:0;left:0;background:var(--primary-dark);flex-direction:column;padding:20px;gap:8px}.nav-links.op{display:flex}.mob-tog{display:block}.hero-stats{gap:24px;flex-wrap:wrap}.hsn{font-size:28px}.ag,.eg,.ng,.cg{grid-template-columns:1fr}.mg{grid-template-columns:repeat(2,1fr)}.mtc{flex-direction:column;text-align:center}.mtd{justify-content:center}.fwrap{padding:28px 20px}.sec{padding:60px 16px}.ftg{grid-template-columns:1fr 1fr}}@media(max-width:480px){.mg{grid-template-columns:repeat(2,1fr);gap:14px}.ftg{grid-template-columns:1fr}}
         
-        /* المقاسات المظبوطة لعرض فيديو Zero-Nine */
-        .zn-ft{max-width:1200px;margin:0 auto;padding:28px 0;display:flex;flex-direction:column;align-items:center;gap:18px;border-top:1px solid rgba(255,255,255,.08)}.zn-copy{font-size:14px;color:rgba(255,255,255,.5)}.zn-frame{display:flex;flex-direction:column;align-items:center;gap:14px;padding:24px 40px;border:2px solid rgba(193,154,91,.35);border-radius:16px;background:linear-gradient(135deg,rgba(193,154,91,.06),rgba(139,109,62,.04));position:relative;text-decoration:none;transition:all .3s}.zn-frame::before{content:'';position:absolute;inset:4px;border:1px solid rgba(193,154,91,.15);border-radius:12px;pointer-events:none}.zn-frame:hover{border-color:rgba(193,154,91,.55);background:linear-gradient(135deg,rgba(193,154,91,.1),rgba(139,109,62,.07));transform:translateY(-2px);box-shadow:0 8px 30px rgba(193,154,91,.15)}.zn-label{font-size:.82rem;color:rgba(255,255,255,.45);font-weight:600;letter-spacing:.5px}
-        /* تعديل عرض الفيديو - المقاس الصحيح */
-        .zn-logo{width:auto;height:75px;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(193,154,91,.3));transition:transform .3s}
-        .zn-frame:hover .zn-logo{transform:scale(1.05)}.zn-name{font-size:1rem;font-weight:800;background:linear-gradient(135deg,#c19a5b,#d4af6e,#8b6d3e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:1px}
-        @media(max-width:550px){.zn-logo{height:55px}.zn-frame{padding:18px 24px}}
+        /* ========== إطار Zero-Nine بالمقاسات المظبوطة ========== */
+        .zn-ft {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            border-top: 1px solid rgba(255,255,255,.1);
+        }
+        
+        .zn-copy {
+            font-size: 14px;
+            color: rgba(255,255,255,.5);
+            text-align: center;
+        }
+        
+        /* الإطار الرئيسي - المقاس مضبوط ليتناسب مع الفيديو */
+        .zn-frame {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 20px 35px;
+            border: 2px solid rgba(193,154,91,.45);
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(193,154,91,.08), rgba(139,109,62,.04));
+            transition: all .3s ease;
+            text-decoration: none;
+            width: auto;
+            min-width: 260px;
+        }
+        
+        .zn-frame:hover {
+            border-color: rgba(193,154,91,.7);
+            background: linear-gradient(135deg, rgba(193,154,91,.12), rgba(139,109,62,.07));
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(193,154,91,.2);
+        }
+        
+        .zn-label {
+            font-size: 12px;
+            color: rgba(255,255,255,.5);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        /* الفيديو - المقاس مضبوط (عرض ثابت 280px، ارتفاع اتوماتيك) */
+        .zn-logo {
+            width: 280px;
+            height: auto;
+            max-width: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+            filter: drop-shadow(0 4px 12px rgba(193,154,91,.3));
+            transition: transform .3s ease;
+            display: block;
+        }
+        
+        .zn-frame:hover .zn-logo {
+            transform: scale(1.02);
+        }
+        
+        .zn-name {
+            font-size: 13px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #c19a5b, #d4af6e, #8b6d3e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.5px;
+        }
+        
+        /* للشاشات الصغيرة */
+        @media (max-width: 550px) {
+            .zn-frame {
+                padding: 15px 25px;
+                min-width: 220px;
+            }
+            .zn-logo {
+                width: 220px;
+            }
+            .zn-label {
+                font-size: 11px;
+            }
+            .zn-name {
+                font-size: 11px;
+            }
+        }
+        
+        @media (max-width: 380px) {
+            .zn-logo {
+                width: 180px;
+            }
+            .zn-frame {
+                padding: 12px 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -60,7 +155,22 @@
 
 <section class="sec" id="complaints"><div class="con"><div class="sh rv"><span class="stag">صوتك مسموع</span><h2>المقترحات والشكاوى</h2><p>شاركنا أفكارك</p></div><div class="fwrap rv" style="max-width:700px"><form id="cF" class="fg" onsubmit="return sCF(event)"><div class="fgi"><label>نوع الرسالة *</label><select name="type" required><option value="">اختر</option><option value="اقتراح">اقتراح</option><option value="شكوى">شكوى</option><option value="استفسار">استفسار</option></select></div><div class="fgi"><label>العنوان *</label><input type="text" name="title" required placeholder="عنوان الرسالة"></div><div class="fgi fw"><label>الوصف *</label><textarea name="description" required placeholder="اكتب تفاصيل رسالتك..."></textarea></div><div class="fgi fw"><label>إرفاق ملف (اختياري)</label><input type="file" name="attachment" style="padding:10px"></div><div class="fgi fw" style="text-align:center"><button type="submit" class="btn btn-p" style="width:100%;justify-content:center">📩 إرسال</button></div></form><div class="fsc" id="cS"><div style="font-size:64px;margin-bottom:16px">📨</div><h3>تم إرسال رسالتك</h3><p>شكرًا لمشاركتنا، سنراجعها قريبًا.</p></div></div></div></section>
 
-<footer class="ft"><div class="ftg"><div class="ftc"><h4 id="fBr">قادة الوطن التطوعي</h4><p id="fDs">المنصة الرسمية للأمانة العامة والفريق التطوعي.</p><div class="fts"><a href="https://www.facebook.com/watanileaders" target="_blank" rel="noopener noreferrer" id="lFb">📘</a><a href="https://twitter.com/watanileaders" target="_blank" rel="noopener noreferrer" id="lTw">🐦</a><a href="https://www.instagram.com/watanileaders" target="_blank" rel="noopener noreferrer" id="lIg">📸</a><a href="https://www.youtube.com/c/watanileaders" target="_blank" rel="noopener noreferrer" id="lYt">🎬</a><a href="https://wa.me/966500000000" target="_blank" rel="noopener noreferrer" id="lWa">💬</a></div></div><div class="ftc"><h4>روابط سريعة</h4><ul class="ftl"><li><a href="#hero">الرئيسية</a></li><li><a href="#about">من نحن</a></li><li><a href="#events">الفعاليات</a></li><li><a href="#join">انضم إلينا</a></li></ul></div><div class="ftc"><h4>خدمات المنصة</h4><ul class="ftl"><li><a href="#courses">الدورات</a></li><li><a href="#meetings">الاجتماعات</a></li><li><a href="#complaints">المقترحات</a></li><li><a href="#members">الأعضاء</a></li></ul></div><div class="ftc"><h4>تواصل معنا</h4><ul class="ftl"><li><a href="mailto:info@watanileaders.com" id="fEm">📧 info@watanileaders.com</a></li><li><a href="#">📍 الأمانة العامة</a></li><li><a href="tel:+966500000000" id="fPh">📞 +966 50 000 0000</a></li></ul></div></div><div class="zn-ft"><span class="zn-copy">© 2026 قادة الوطن التطوعي | جميع الحقوق محفوظة</span><a href="https://zero-nine-rose.vercel.app/" target="_blank" class="zn-frame"><span class="zn-label">تم الإنشاء والتطوير بواسطة</span><video class="zn-logo" src="zero-nine-intro.mp4" autoplay muted loop playsinline></video><span class="zn-name">Zero-Nine for Digital Solutions</span></a></div></footer>
+<footer class="ft">
+    <div class="ftg">
+        <div class="ftc"><h4 id="fBr">قادة الوطن التطوعي</h4><p id="fDs">المنصة الرسمية للأمانة العامة والفريق التطوعي.</p><div class="fts"><a href="https://www.facebook.com/watanileaders" target="_blank" rel="noopener noreferrer" id="lFb">📘</a><a href="https://twitter.com/watanileaders" target="_blank" rel="noopener noreferrer" id="lTw">🐦</a><a href="https://www.instagram.com/watanileaders" target="_blank" rel="noopener noreferrer" id="lIg">📸</a><a href="https://www.youtube.com/c/watanileaders" target="_blank" rel="noopener noreferrer" id="lYt">🎬</a><a href="https://wa.me/966500000000" target="_blank" rel="noopener noreferrer" id="lWa">💬</a></div></div>
+        <div class="ftc"><h4>روابط سريعة</h4><ul class="ftl"><li><a href="#hero">الرئيسية</a></li><li><a href="#about">من نحن</a></li><li><a href="#events">الفعاليات</a></li><li><a href="#join">انضم إلينا</a></li></ul></div>
+        <div class="ftc"><h4>خدمات المنصة</h4><ul class="ftl"><li><a href="#courses">الدورات</a></li><li><a href="#meetings">الاجتماعات</a></li><li><a href="#complaints">المقترحات</a></li><li><a href="#members">الأعضاء</a></li></ul></div>
+        <div class="ftc"><h4>تواصل معنا</h4><ul class="ftl"><li><a href="mailto:info@watanileaders.com" id="fEm">📧 info@watanileaders.com</a></li><li><a href="#">📍 الأمانة العامة</a></li><li><a href="tel:+966500000000" id="fPh">📞 +966 50 000 0000</a></li></ul></div>
+    </div>
+    <div class="zn-ft">
+        <span class="zn-copy">© 2026 قادة الوطن التطوعي | جميع الحقوق محفوظة</span>
+        <a href="https://zero-nine-rose.vercel.app/" target="_blank" rel="noopener noreferrer" class="zn-frame">
+            <span class="zn-label">تم الإنشاء والتطوير بواسطة</span>
+            <video class="zn-logo" src="zero-nine-intro.mp4" autoplay muted loop playsinline></video>
+            <span class="zn-name">Zero-Nine for Digital Solutions</span>
+        </a>
+    </div>
+</footer>
 
 <button class="stt" id="st" onclick="window.scrollTo({top:0})">↑</button>
 <div class="tst" id="tst"></div>
@@ -89,19 +199,8 @@ async function loadSettings(){
     if(s.stat_events)document.getElementById('sE').dataset.c=s.stat_events;
     if(s.stat_initiatives)document.getElementById('sI').dataset.c=s.stat_initiatives;
     if(s.footer_desc)document.getElementById('fDs').textContent=s.footer_desc;
-    
-    if(s.email){
-        document.getElementById('fEm').innerHTML=`📧 ${s.email}`;
-        document.getElementById('fEm').href=`mailto:${s.email}`;
-    }
-    if(s.phone){
-        let cleanPhone = s.phone.replace(/[\s\-]/g, '');
-        if(!cleanPhone.startsWith('+') && !cleanPhone.startsWith('00')){
-            cleanPhone = '+' + cleanPhone;
-        }
-        document.getElementById('fPh').innerHTML=`📞 ${s.phone}`;
-        document.getElementById('fPh').href=`tel:${cleanPhone}`;
-    }
+    if(s.email){document.getElementById('fEm').innerHTML=`📧 ${s.email}`;document.getElementById('fEm').href=`mailto:${s.email}`;}
+    if(s.phone){let cleanPhone = s.phone.replace(/[\s\-]/g, '');if(!cleanPhone.startsWith('+') && !cleanPhone.startsWith('00')){cleanPhone = '+' + cleanPhone;}document.getElementById('fPh').innerHTML=`📞 ${s.phone}`;document.getElementById('fPh').href=`tel:${cleanPhone}`;}
     if(s.facebook && document.getElementById('lFb'))document.getElementById('lFb').href=s.facebook;
     if(s.twitter && document.getElementById('lTw'))document.getElementById('lTw').href=s.twitter;
     if(s.instagram && document.getElementById('lIg'))document.getElementById('lIg').href=s.instagram;
