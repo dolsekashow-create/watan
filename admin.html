@@ -126,6 +126,8 @@
                     <div class="afg"><label>خلفية الهيرو (تحميل صورة)</label><div class="img-up-wrap"><label class="img-up-label">🖼️ اختر صورة الخلفية<input type="file" accept="image/*" id="stHero" onchange="prevImg(this,'stHeroP')"></label></div><img id="stHeroP" class="img-preview" style="display:none"></div>
                     <div class="afg"><label>اسم الموقع (عربي)</label><input type="text" id="stName" placeholder="قادة الوطن التطوعي"></div>
                     <div class="afg"><label>اسم الموقع (إنجليزي)</label><input type="text" id="stNameEn" placeholder="Watani Leaders" dir="ltr"></div>
+                    <div class="afg fl"><label>عنوان الهيرو الرئيسي (الكلام على صورة الخلفية)</label><input type="text" id="stHeroTitle" placeholder="قادة الوطن التطوعي"></div>
+                    <div class="afg fl"><label>الكلمة المميزة باللون الأصفر</label><input type="text" id="stHeroHL" placeholder="الوطن"></div>
                     <div class="afg fl"><label>شعار الهيرو الفرعي</label><input type="text" id="stSub" placeholder="معًا نبني مستقبل الأمانة"></div>
                 </div>
             </div>
@@ -278,6 +280,8 @@ async function ldSettings(){const s={};(await DB.g('site_settings')).forEach(r=>
     if(s.site_name)document.getElementById('stName').value=s.site_name;
     if(s.site_name_en)document.getElementById('stNameEn').value=s.site_name_en;
     if(s.hero_subtitle)document.getElementById('stSub').value=s.hero_subtitle;
+    if(s.hero_title)document.getElementById('stHeroTitle').value=s.hero_title;
+    if(s.hero_title_highlight)document.getElementById('stHeroHL').value=s.hero_title_highlight;
     if(s.vision)document.getElementById('stVision').value=s.vision;
     if(s.mission)document.getElementById('stMission').value=s.mission;
     if(s.goals)try{document.getElementById('stGoals').value=JSON.parse(s.goals).join('\n')}catch(e){}
@@ -299,7 +303,7 @@ async function saveSt(){
     const logoFile=document.getElementById('stLogo');const heroFile=document.getElementById('stHero');
     if(logoFile.files&&logoFile.files[0]){const url=await uploadImg(logoFile);if(url)await DB.upsertSetting('logo',url);}
     if(heroFile.files&&heroFile.files[0]){const url=await uploadImg(heroFile);if(url)await DB.upsertSetting('hero_bg',url);}
-    const fields={site_name:'stName',site_name_en:'stNameEn',hero_subtitle:'stSub',vision:'stVision',mission:'stMission',stat_volunteers:'stSV',stat_events:'stSE',stat_initiatives:'stSI',email:'stEmail',phone:'stPhone',facebook:'stFb',twitter:'stTw',instagram:'stIg',youtube:'stYt',whatsapp:'stWa',footer_desc:'stFDesc'};
+    const fields={site_name:'stName',site_name_en:'stNameEn',hero_subtitle:'stSub',hero_title:'stHeroTitle',hero_title_highlight:'stHeroHL',vision:'stVision',mission:'stMission',stat_volunteers:'stSV',stat_events:'stSE',stat_initiatives:'stSI',email:'stEmail',phone:'stPhone',facebook:'stFb',twitter:'stTw',instagram:'stIg',youtube:'stYt',whatsapp:'stWa',footer_desc:'stFDesc'};
     for(const[k,elId]of Object.entries(fields)){const v=document.getElementById(elId).value;if(v)await DB.upsertSetting(k,v);}
     const goals=document.getElementById('stGoals').value.trim();if(goals)await DB.upsertSetting('goals',JSON.stringify(goals.split('\n').filter(x=>x.trim())));
     tst('✅ تم حفظ الإعدادات بنجاح!');}
